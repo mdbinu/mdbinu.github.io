@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Image drawing</title>
+        <script type="text/javascript" src="logic.js"></script>
+		<link rel="stylesheet" href="styles.css">	
+    </head>
+    <body>
+		<h2><center>Multispectral Visualisation Tool</center></h2>
+		<div class="row">
+		  <div class="column left" style="background-color:#aaa; overflow-y: scroll;">
+			
+			<div class="top" style="background-color:#ccc;">
+				<form action="/action_page.php">
+					Select images: <input type="file" name="img" id="input1" multiple>
+				</form>
+			</div>
+			
+			<div class="bottom" style="background-color:#ccc;" id="lef">
+			</div>			
+
+		  </div>
+		  <div class="column middle" style="background-color:#bbb;" id="mid">
+			<canvas id="canvas" onmousemove="myFunction(event)" ontouchmove="myFunction2(event)"/>
+			<canvas id="canvas2""/>
+		  </div>
+		  <div class="column right" style="background-color:#ccc;">
+			<p>Details</p>
+			<p id="topimg" >Background Image :</p>
+			<p id="bottomimg">Forground Image :</p>
+		  </div>
+		</div>
+    </body>
+</html>

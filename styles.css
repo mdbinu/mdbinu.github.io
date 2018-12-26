@@ -1,0 +1,62 @@
+body {
+  background-color: powderblue;
+}
+
+h2 {
+  color: blue;
+}
+
+.options {
+  color: black;
+  font-size: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 1px;
+  height: 80vh; /* Should be removed. Only for demonstration */
+}
+
+.left, .right {
+  width: 15%;
+}
+
+.middle {
+  width: 70%;
+}
+
+/* Create three unequal columns that floats next to each other */
+.top {
+  float: top;
+  padding: 1px;
+  height: 10%; /* Should be removed. Only for demonstration */
+}
+
+.bottom {
+  float: bottom;
+  padding: 1px;
+  height: 90%; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.img_thump {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 80px;
+  margin: 1px; 
+}
+
+.img_thump:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
