@@ -11,8 +11,6 @@ var renderableHeight, renderableWidth;
 window.onload = function() {
     var input1 = document.getElementById('input1');
     input1.addEventListener('change', handleFiles, false);
-	var input2 = document.getElementById('input2');
-    input2.addEventListener('change', handleFiles2, false);
 }
 
 function CalcResolution( docWidth, docHeight, img )
@@ -141,79 +139,13 @@ function displaythumps( e )
 
 
 
-function handleFiles2(e) {
 
-    ctx2 = document.getElementById('canvas2').getContext('2d');
-    var reader  = new FileReader();
-    var file = e.target.files[0];
-    // load to image to get it's width/height
-    var img = new Image();
-    img.onload = function() {
-		
-		var docWidth = window.innerWidth;
-		var docHeight = window.innerHeight;;
-		//console.log(docWidth);
-		//console.log(docHeight);
-				//percentage based
-		var elWidth = docWidth;
-		var elHeight = docHeight*0.9;
-		
-		var imageAspectRatio = img.width / img.height;
-		//console.log(imageAspectRatio);
-		var canvasAspectRatio = elWidth / elHeight;
-		//console.log("123");
-		//console.log(canvasAspectRatio);
-		var renderableHeight, renderableWidth, xStart, yStart;
-
-		// If image's aspect ratio is less than canvas's we fit on height
-		// and place the image centrally along width
-		if(imageAspectRatio < canvasAspectRatio) {
-			renderableHeight = elHeight;
-			renderableWidth = img.width * (renderableHeight / img.height);
-			xStart = (elWidth - renderableWidth) / 2;
-			yStart = 0;
-		}
-
-		// If image's aspect ratio is greater than canvas's we fit on width
-		// and place the image centrally along height
-		else if(imageAspectRatio > canvasAspectRatio) {
-			renderableWidth = elWidth;
-			renderableHeight = img.height * (renderableWidth / img.width);
-			xStart = 0;
-			yStart = (elHeight - renderableHeight) / 2;
-		}
-
-		// Happy path - keep aspect ratio
-		else {
-			renderableHeight = elHeight;
-			renderableWidth = elWidth;
-			xStart = 0;
-			yStart = 0;
-		}
-
-		//set image size to suit your needs
-
-        // scale canvas to image
-        ctx2.canvas.width = renderableWidth;
-        ctx2.canvas.height = renderableHeight;
-        // draw image
-        ctx2.drawImage(img, 0, 0
-            , ctx2.canvas.width, ctx2.canvas.height
-        );
-    }
-    // this is to setup loading the image
-    reader.onloadend = function () {
-        img.src = reader.result;
-    }
-    // this is to read the file
-   	reader.readAsDataURL(file);
-
-}
 
 function myFunction(e) {
     var x = e.clientX;
     var y = e.clientY;
 	aplyalpha(x,y);
+	e.preventDefault();
 }
 
 function myFunction2(e) {
@@ -221,6 +153,7 @@ function myFunction2(e) {
 	var x = event.touches[0].clientX;
 	var y = event.touches[0].clientY;
 	aplyalpha(x,y);
+	e.preventDefault();
 }
 
 function aplyalpha(inX,inY)
