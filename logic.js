@@ -196,6 +196,7 @@ function touchdown(e) {
 	
 	prevx = event.touches[0].clientX;
 	prevy = event.touches[0].clientY;
+	e.preventDefault();
 	//console.log(prevx);
 }
 
